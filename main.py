@@ -1,8 +1,11 @@
 import pygame as pg
 import random
 import math
+from pygame import mixer as mx
 
 pg.init()
+mx.music.load('audio/background.wav')
+mx.music.play(-1)
 
 screen = pg.display.set_mode((800, 600))
 pg.display.set_caption("Battle in outer Space")
@@ -97,6 +100,8 @@ while run:
             if event.key == pg.K_SPACE:
                 if bullet_state == "ready":
                     bullet_x = player_x
+                    bulSound=mx.Sound('audio/laser.wav')
+                    bulSound.play()
                     attack(bullet_x, bullet_y)
         if event.type == pg.KEYUP:
             if event.key == pg.K_LEFT or event.key == pg.K_RIGHT:
@@ -128,6 +133,8 @@ while run:
         # checking whether the bullet had hit the target
         hit = touch(bullet_x, bullet_y, enemy_x[i], enemy_y[i])
         if hit:
+            explSound=mx.Sound('audio/explosion.wav')
+            explSound.play()
             bullet_y = 520
             bullet_state = "ready"
             score += 1
