@@ -3,7 +3,7 @@
 * Clone or Download the repo
 * Make sure you have `pygame` package installed
 * Run `Main.py` file
-###Features to Add
+### Features to Add
 - [ ] Add Start, Instructions, About before begin
 - [ ] Add Retry after GameOver
 
